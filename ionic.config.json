@@ -1,0 +1,7 @@
+{
+  "name": "conceptHost",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
