@@ -29,3 +29,21 @@
 #ion-header {
   display: none;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Estilo para ocultar el scroll vertical */
+#elemento-con-scroll {
+  overflow: hidden;  
+}
+
+#section {
+  scrollbar-width: none; /*Firefox, Opera, Chrome y Edge*/
+ }
+ 
+/*Webkit(Android browser, Safari y otros webkit)*/
+#section::-webkit-scrollbar {
+width: 0;
+}
