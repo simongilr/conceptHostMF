@@ -32,10 +32,9 @@
     </ion-toolbar>
   </ion-header>
 
-<ion-content class="ion-padding">
-  <ng-container *ngFor="let mf of microfrontends">
-    <iframe #miFrame [src]="(paginaActual && clickApp === 0 ? paginaActual : mf.url) | safeHtml" [style]="mf.classStyle" *ngIf="mf.id === selectedApp" allow="fullscreen"></iframe>
-  </ng-container>
-</ion-content>
-  
+  <ion-content class="ion-padding">
+    <ng-container *ngFor="let mf of microfrontends">
+      <iframe #miFrame [src]="(paginaActual && clickApp === 0 ? paginaActual : mf.url) | safeHtml" [style]="mf.classStyle" *ngIf="mf.id === selectedApp" allow="fullscreen"></iframe>
+    </ng-container>
+  </ion-content>
 </div>
