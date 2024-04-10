@@ -16,50 +16,42 @@ src: string = '';
 paginaActual: string = '';
 selectedApp: any;
 idAct: any;
+clickApp: number = 0;
+microfrontends = [
+  { id: 1, name: 'Desplegar microfrontend 1', url: 'http://localhost:4200/', classStyle: 'width: 100%; height: 100vh; border: none;' },
+  { id: 2, name: 'Desplegar microfrontend 2', url: 'http://localhost:64383/', classStyle: 'width: 100%; height: 100vh; border: none;' },
+  { id: 3, name: 'Desplegar microfrontend 3', url: 'http://localhost:52612/', classStyle: 'width: 100%; height: 140vh; border: none;' }
+];
+
 
 constructor(private menuCtrl: MenuController, private activatedRoute: ActivatedRoute) {}
 
-
-
 ngOnInit() {
-  this.idAct = localStorage.getItem('idAct') || '';
-  this.paginaActual = localStorage.getItem('paginaActual') || '';
+  this.clickApp = 0;
+  this.getUrl();
   window.addEventListener('message', this.handleMessage.bind(this), false);
 }
 
 getUrl() {
-  console.log('iniciado...');
+  this.idAct = localStorage.getItem('idAct') || '';
+  this.selectedApp = parseInt(this.idAct);
+  this.paginaActual = localStorage.getItem('paginaActual') || '';
 }
-
 
 handleMessage(event: MessageEvent) {
   const messageData = event.data;
   if (messageData && messageData.url) {
     this.paginaActual = messageData.url;
     localStorage.setItem('paginaActual', this.paginaActual);
-
-    console.log('URL del iframe recibida:', this.paginaActual);
-    // Actualizar la URL del iframe si paginaActual no está vacío
-    if (this.paginaActual !== '') {
-      this.miFrame.nativeElement.src = this.paginaActual;
-    }
   }
 }
 
-
-  changeApp(on:number) {
-    this.getUrl();
-    this.selectedApp = on;
-    localStorage.setItem('idAct', this.selectedApp);
-    console.log('frame',  this.selectedApp);
-  }
-
-  microfrontends = [
-    { id: 1, name: 'Desplegar microfrontend 1', url: 'http://localhost:52480/', classStyle: 'width: 100%; height: 100vh; border: none;' },
-    { id: 2, name: 'Desplegar microfrontend 2', url: 'http://localhost:64383/', classStyle: 'width: 100%; height: 100vh; border: none;' },
-    { id: 3, name: 'Desplegar microfrontend 3', url: 'http://localhost:52612/', classStyle: 'width: 100%; height: 140vh; border: none;' }
-  ];
-  
+changeApp(on:number) {
+  this.clickApp = on; 
+  this.selectedApp = on;
+  localStorage.setItem('idAct', this.selectedApp);
+  console.log('frame',  this.selectedApp);
+}
 
 }
 
