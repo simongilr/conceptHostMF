@@ -4,7 +4,10 @@ import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
-import { SafeHtmlPipe } from './compile.pipe';
+import { FooterComponent } from '../shared/components/footer/footer.component';
+import { NavBarComponent } from '../shared/components/nav-bar/nav-bar.component';
+import { MenuComponent } from '../shared/components/menu/menu.component';
+import { SafeHtmlPipe } from '../shared/components/menu//compile.pipe';
 
 
 @NgModule({
@@ -13,7 +16,8 @@ import { SafeHtmlPipe } from './compile.pipe';
     FormsModule,
     IonicModule,
     HomePageRoutingModule
+    
   ],
-  declarations: [ HomePage, SafeHtmlPipe ]
+  declarations: [ HomePage ]
 })
 export class HomePageModule {}
