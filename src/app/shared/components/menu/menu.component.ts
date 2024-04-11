@@ -19,8 +19,8 @@ export class MenuComponent implements OnInit{
     clickApp: number = 0;
     microfrontends = [
       { id: 1, name: 'Desplegar microfrontend 1', url: 'http://localhost:4200/', classStyle: 'width: 100%; height: 100vh; border: none;' },
-      { id: 2, name: 'Desplegar microfrontend 2', url: 'http://localhost:64383/', classStyle: 'width: 100%; height: 100vh; border: none;' },
-      { id: 3, name: 'Desplegar microfrontend 3', url: 'http://localhost:52612/', classStyle: 'width: 100%; height: 140vh; border: none;' }
+      { id: 2, name: 'Desplegar microfrontend 2', url: 'http://localhost:56323/', classStyle: 'width: 100%; height: 100vh; border: none;' },
+      { id: 3, name: 'Desplegar microfrontend 3', url: 'http://localhost:56354/', classStyle: 'width: 100%; height: 140vh; border: none;' }
     ];
   
   
