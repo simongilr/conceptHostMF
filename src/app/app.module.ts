@@ -11,7 +11,7 @@ import { SafeHtmlPipe } from './shared/components/menu/compile.pipe';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./app.module').then(m => m.AppModule)
+    loadChildren: () => import('./admin/home/home.module').then( m => m.HomePageModule)
   },
   {
     path: '',
@@ -21,7 +21,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, SafeHtmlPipe, FooterComponent, NavBarComponent, MenuComponent],
+  declarations: [AppComponent],
   imports: [BrowserModule, RouterModule.forRoot(routes), IonicModule.forRoot()],
   providers: [],
   bootstrap: [AppComponent],

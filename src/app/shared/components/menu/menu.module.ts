@@ -13,6 +13,6 @@ import { SafeHtmlPipe } from './compile.pipe';
     FormsModule,
     IonicModule,
   ],
-  exports: [MenuComponent  ] // Si deseas exportar el componente para que esté disponible en otros módulos
+  exports: [MenuComponent  ] 
 })
 export class MenuModule { }
