@@ -15,6 +15,7 @@ export class MenuComponent implements OnInit{
   
   constructor(private menuCtrl: MenuController, private activatedRoute: ActivatedRoute, private menuService: MenuService) {}
 
+    searchTerm: string = '';
     src = this.menuService.src;
     paginaActual = this.menuService.paginaActual;
     selectedApp = this.menuService.selectedApp;
@@ -27,6 +28,10 @@ export class MenuComponent implements OnInit{
       window.addEventListener('message', this.handleMessage.bind(this), false);
     }
   
+    get filteredMicrofrontends() {
+      return this.menuService.microfrontends.filter(mf => mf.name.toLowerCase().includes(this.searchTerm.toLowerCase()));
+    }
+
     handleMessage(event: MessageEvent) {
       const messageData = event.data;
       if (messageData && messageData.url) {

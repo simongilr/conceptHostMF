@@ -1,13 +1,19 @@
-ion-button {
-    --background: rgb(236, 199, 104);
-    --background-hover: rgb(212, 175, 80);
-    --background-activated: rgb(212, 178, 98);
-    --background-focused: rgb(221, 201, 151);
-    
-    --border-color: #000;
+
+
+  .button-icon-top {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
   
-    --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25);
-    
-    --padding-top: 10px;
-    --padding-bottom: 10px;
+  .icon-top {
+    margin-bottom: 5px; /* Espacio entre el icono y el texto */
+  }
+
+
+  .text {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
   }
