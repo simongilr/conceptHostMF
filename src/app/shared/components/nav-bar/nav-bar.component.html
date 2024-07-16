@@ -1,8 +1,50 @@
-<ion-header [translucent]="false" class="ion-no-border ion-header">
+<ion-header [translucent]="false" class="ion-no-border ion-header custom-header">
   <ion-toolbar>
-      <ion-button id="click-trigger" fill="clear" color="warning">         
-         <ion-icon name="apps-outline"></ion-icon>
+    
+    <div class="toolbar-content">
+      <ion-button id="click-trigger" fill="clear">
+        <img src="../../../../assets/icon/fi-rr-apps.svg" alt="Custom Icon" style="width: 24px; height: 24px;">
       </ion-button>
+      <ion-title size="large" class="button-text">SicofERP</ion-title>
+
+      <div class="dashboard-toolbar toolbar">
+        <div class="toolbar-item">
+            <div class="toolbar-notifications">
+                <img src="../../../../assets/images/notificaciones.svg" alt="" class="toolbar-notifications__icon">
+            </div>
+            <div class="toolbar-user" id="open-modal" expand="block">
+                <div class="toolbar-user__name">Karla Vázquez</div>
+                <img src="../../../../assets/images/user.png" alt="" class="toolbar-user__icon">
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <ion-modal #modal trigger="open-modal">
+      <ng-template>
+        <ion-content>
+          <ion-toolbar>
+            <ion-title>Ingreso</ion-title>
+            <ion-buttons slot="end">
+              <ion-button color="light" (click)="modal.dismiss()">X</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+      
+          <ion-list class="login-form">
+            <ion-item>
+              <ion-input type="text" labelPlacement="floating" label="Usuario"></ion-input>
+            </ion-item>
+      
+            <ion-item >
+              <ion-input type="password" labelPlacement="floating" label="Contraseña"></ion-input>
+            </ion-item>
+            <br>
+            <ion-button expand="block" class="login-button">Aceptar</ion-button><br>
+            <div class="centered-text"><ion-text >Debe loguearse para continuar</ion-text></div>
+          </ion-list>
+        </ion-content>
+    </ng-template>
+  </ion-modal>
+  
   </ion-toolbar>
 </ion-header>
-

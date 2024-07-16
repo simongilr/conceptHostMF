@@ -33,3 +33,16 @@ ion-content {
 .no-scroll {
     --overflow: hidden;
   }
+
+ion-toolbar {
+  display: flex; /* Asegura que los elementos se ajusten al contenido */
+  --background: #038C83;
+  border-bottom-left-radius: 10px; /* Ajusta el radio según tus necesidades */
+  border-bottom-right-radius: 10px;   
+  width: 100%; /* Asegura que el ancho se ajuste al margen */
+  max-width: 100%; /* Ajusta para no ocupar todo el ancho */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Añade una sombra si es necesario */
+}
+
+
+

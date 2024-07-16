@@ -1,0 +1,265 @@
+.toolbar-content {
+    display: flex; /* Utiliza flexbox para alinear los elementos */
+    justify-content: space-between; /* Coloca los elementos a los lados */
+    align-items: center; /* Centra verticalmente los elementos */
+    padding: 0 16px; /* Ajusta el relleno horizontal según sea necesario */
+  }
+  
+  .button-text {
+    color: white;
+    text-transform: capitalize;
+    margin-left: -25px;
+  }
+
+
+  .container-dashboard {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    background-color: var(--color-white);
+    overflow-y: hidden;
+}
+
+
+.dashboard-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0 0 .5rem .5rem;
+    background-color: var(--color-primary500);
+    padding: 0 2rem;
+    margin-left: auto; /* Empuja este contenido hacia la derecha */
+    color: var(--color-white); /* Asegura que el texto sea blanco */
+    height: 3.1rem;
+
+  }
+  
+
+.toolbar-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: white !important;
+}
+
+.toolbar-icon {
+    width: 2.3rem;
+    cursor: pointer;
+}
+
+.toolbar-title {
+    font-size: 1.6rem;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.toolbar-notifications {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:white !important;
+    cursor: pointer;
+}
+
+.toolbar-notifications__icon{
+    width: 1.5rem;
+}
+
+.toolbar-user {
+    width: 9rem;
+    height: 2.8rem;
+    background-color: white !important;
+    color: black !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .5rem !important;
+    border-radius: .5rem 2rem 2rem .5rem;
+    cursor: pointer;
+}
+
+.toolbar-user__name {
+    font-size: 0.8rem;
+}
+
+  
+.toolbar-user__subtitle {
+    font-size: 0.8rem; /* Tamaño de fuente del subtítulo */
+    color: #888; /* Color del texto del subtítulo */
+}
+
+
+.toolbar-user__icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+}
+
+.user-data {
+    width: 10rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.user-data__item {
+    cursor: pointer;
+    color: var(--color-black);
+}
+
+.dashboard-content-main {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    display: grid;
+    grid-template-columns: 15rem 1fr;
+    transition: grid-template-columns 0.3s ease;
+    gap: .5rem;
+}
+
+.dashboard_content_main_hidden {
+    grid-template-columns: 5rem 1fr;
+}
+
+/* Sidebar */
+.dashboard-sidebar {
+    width: 100%;
+    height: 100%;
+    padding: 0 0 .2rem .2rem;
+}
+
+.sidebar {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-primary500);
+    border-radius: .5rem;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem 1rem;
+}
+
+.sidebar-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sidebar-menu {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-radius: .3rem;
+    padding: .5rem;
+    color: var(--color-white);
+    cursor: pointer;
+    font-weight: 300;
+    transition: font-weight 0.3s ease;
+}
+
+
+.sidebar-menu:hover {
+    font-weight: 600;
+    background-color: rgba(234, 236, 240, 0.106);
+}
+
+.router-link-active{
+    background-color: rgba(234, 236, 240, 0.106);
+}
+
+.sidebar-menu__icon {
+    width: 1.7rem;
+}
+
+.sidebar-footer {
+    width: 80%;
+    height: 3rem;
+    border-radius: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .7rem;
+    font-weight: 600;
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    cursor: pointer;
+}
+
+.dashboard-content {
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    overflow-y: scroll;
+}
+
+
+/* Estilos para móviles */
+@media  (max-width: 650px) {
+
+    .dashboard-content-main {
+        grid-template-columns: 0 1fr;
+    }
+
+    .dashboard_content_main_hidden {
+        z-index: 2;
+        grid-template-columns: 1fr 0;
+    }
+
+}
+
+
+ion-modal {
+    --height: 50%;
+    --max-height: 80vh; /* Ajusta el valor según sea necesario */
+    --max-width: 80vh; /* Ajusta el valor según sea necesario */
+    --border-radius: 16px;
+    --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+  
+  ion-modal::part(backdrop) {
+    background: rgba(0, 0, 0, 0.5); 
+    opacity: 3;
+
+  }
+  
+  ion-modal ion-toolbar {
+    --background: #038C83; /* Color de fondo del botón */
+    --color: white;
+  }
+
+  .login-modal-content {
+    --background: #f4f4f4; /* Cambia el color de fondo según tu preferencia */
+  }
+  
+  .login-form {
+    padding: 20px;
+  }
+  
+  .input-field {
+    border-radius: 8px;
+    background-color: #fff;
+  }
+  
+  .login-button {
+    margin-top: 20px;
+    --background: #038C83; /* Color de fondo del botón */
+    --color: #fff; /* Color del texto del botón */
+    --border-radius: 8px;
+  }
+
+  .centered-text {
+    text-align: center; /* Alinea el texto al centro */
+    margin-top: 20px; /* Añade un margen superior para separar del resto */
+    color: #720404;
+  }
