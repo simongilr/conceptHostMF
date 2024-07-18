@@ -218,11 +218,10 @@
 
 }
 
-
 ion-modal {
-    --height: 50%;
-    --max-height: 80vh; /* Ajusta el valor según sea necesario */
-    --max-width: 80vh; /* Ajusta el valor según sea necesario */
+    --height: 52vh;
+    --max-height: 52vh; /* Ajusta el valor según sea necesario */
+    --max-width: 85vh; /* Ajusta el valor según sea necesario */
     --border-radius: 16px;
     --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   }
@@ -262,4 +261,11 @@ ion-modal {
     text-align: center; /* Alinea el texto al centro */
     margin-top: 20px; /* Añade un margen superior para separar del resto */
     color: #720404;
+  }
+
+
+  .centered-text-success {
+    text-align: center; /* Alinea el texto al centro */
+    margin-top: 20px; /* Añade un margen superior para separar del resto */
+    color: #167204;
   }
