@@ -26,11 +26,12 @@ export class AuthService {
  */
 
   login(username: string, password: string): Observable<any> {
-    return this.http.post<any>(`http://10.1.140.21:8082/api/auth/login`, { username, password }, { responseType: 'text' as 'json' }).pipe(
+    return this.http.post<any>(`http://10.1.140.21:8082/api/auth/login`, { username, password }).pipe(
       tap(response => {
-        console.log('respuesta', response);
         
-       // localStorage.setItem('token', response);
+        const token = response.token;
+        console.log(token);
+       localStorage.setItem('token', token);
       })
     );
   }

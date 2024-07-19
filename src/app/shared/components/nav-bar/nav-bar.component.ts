@@ -13,6 +13,7 @@ export class NavBarComponent {
   password: string = '';
   msg: string = '';
   alert: string = 'Debe loguearse para continuar';
+  user: string = 'Loggin';
 
   @ViewChild('modal') modal: any;
 
@@ -26,12 +27,14 @@ export class NavBarComponent {
         console.log('Login exitoso', response);
         this.msg = 'Login exitoso';
 
+        this.user = this.username;
+
         setTimeout(() => {
           this.modal.dismiss();
           this.msg = '';
           this.username  = '';
           this.password  = '';
-        }, 1200);
+        }, 1000);
 
       },
       error => {

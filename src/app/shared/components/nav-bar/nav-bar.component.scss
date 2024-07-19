@@ -220,10 +220,18 @@
 
 ion-modal {
     --height: 52vh;
-    --max-height: 52vh; /* Ajusta el valor según sea necesario */
-    --max-width: 85vh; /* Ajusta el valor según sea necesario */
+    --max-height: 52vh;
+    --max-width: 85vh;
     --border-radius: 16px;
     --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+  
+  @media (min-width: 1600px) {
+    ion-modal {
+      --height: 40vh; /* Ajusta el valor según sea necesario */
+      --max-height: 40vh; /* Ajusta el valor según sea necesario */
+      --max-width: 60vw; /* Ajusta el valor según sea necesario */
+    }
   }
   
   ion-modal::part(backdrop) {
