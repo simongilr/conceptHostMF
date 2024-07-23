@@ -14,7 +14,7 @@ export class MenuService {
     idAct: any;
     clickApp: number = 0;
     microfrontends = [
-      { id: 1, name: 'SICOF', url: 'http://localhost:4800/', classStyle: 'margin-top: -20px; width: 104%; margin-left: -15px; height: 100vh; border: none; overflow-x: hidden !important;  overflow: hidden !important;',  icon: 'paper-plane-outline', colorIcon: 'warning'},
+      { id: 1, name: 'SICOF', url: 'http://localhost:4800/', classStyle: 'margin-top: -28px; width: 103%; margin-left: -28px; height: 100vh; border: none; overflow-x: hidden !important;  overflow: hidden !important;',  icon: 'paper-plane-outline', colorIcon: 'warning'},
       { id: 2, name: 'CONTRATISTA', url: 'http://localhost:4200/', classStyle: 'position: fixed; top: 55px; left: -10px; width: 100%; height: 100vh; border: none;', icon:'newspaper-outline',  colorIcon: 'danger'},
       { id: 3, name: 'SICOF APP', url: 'http://localhost:8100/', classStyle: 'margin-top: 10px; width: 100%; height: 130vh; border: none;', icon: 'star', colorIcon: 'success' },
     ];

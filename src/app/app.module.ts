@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http'; // Importar HttpClientModule
 import { JwtModule } from '@auth0/angular-jwt';
 
+
 const routes: Routes = [
   {
     path: 'home',
@@ -24,6 +25,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes), 
     IonicModule.forRoot(),
     HttpClientModule,
+
     JwtModule.forRoot({
       config: {
         tokenGetter: () => {

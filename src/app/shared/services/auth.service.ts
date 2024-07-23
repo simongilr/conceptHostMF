@@ -25,8 +25,8 @@ export class AuthService {
   }
  */
 
-  login(username: string, password: string): Observable<any> {
-    return this.http.post<any>(`http://10.1.140.21:8082/api/auth/login`, { username, password }).pipe(
+  login(username: string, password: string, iv: string): Observable<any> {
+    return this.http.post<any>(`http://10.1.140.21:8082/api/auth/login`, { username, password, iv }).pipe(
       tap(response => {
         
         const token = response.token;
