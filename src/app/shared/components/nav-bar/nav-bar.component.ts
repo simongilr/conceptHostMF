@@ -1,6 +1,8 @@
 import { Component, OnInit, viewChild, ViewChild } from '@angular/core';
 import { AuthService } from '../../../shared/services/auth.service'; // Ajusta la ruta según tu estructura de carpetas
 import { EncryptionService } from '../../../shared/services/encryption.service';
+//import { EncryptionService } from '@mflibs/encryption-lib';   
+
 
 
 @Component({
@@ -29,16 +31,10 @@ export class NavBarComponent {
 
   login() {
 
-
-    const service = new EncryptionService();
-    const plainText = 'Hello, World!';
-
+      const service = new EncryptionService();
       const { encryptedText, iv } = service.encrypt(this.username);
       console.log('Encrypted Text:', encryptedText);
       console.log('IV:', iv);
-
-
-
 
     this.authService.login(encryptedText, this.password, iv.toString()).subscribe(
       response => {
