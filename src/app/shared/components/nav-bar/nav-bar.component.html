@@ -12,7 +12,7 @@
             <div class="toolbar-notifications" *ngIf="user == 'Loggin'">
                 <img src="../../../../assets/images/notificaciones.svg" alt="" class="toolbar-notifications__icon">
             </div>
-            <div class="toolbar-user" id="open-modal" expand="block">
+            <div class="toolbar-user" id="open-modal" (click)="openLoginModal()" expand="block">
                 <div class="toolbar-user__name">{{user}}</div>
                 <img src="../../../../assets/images/user.png" alt="" class="toolbar-user__icon">
             </div>
@@ -22,33 +22,9 @@
 
   <ion-modal #modal trigger="open-modal">
     <ng-template>
-      <ion-content>
-        <ion-toolbar>
-          <ion-title>Ingreso</ion-title>
-          <ion-buttons slot="end">
-            <ion-button color="light" (click)="modal.dismiss()">X</ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-        <ion-list class="login-form">
-          <ion-item>
-            <ion-input type="text" [(ngModel)]="username" labelPlacement="floating" label="Usuario"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-input type="password" [(ngModel)]="password" labelPlacement="floating" label="Contraseña" (keyup.enter)="login()"></ion-input>
-          </ion-item>
-          <br>
-          <ion-button expand="block" class="login-button" (click)="login()" >Aceptar</ion-button>
-          <div class="centered-text" *ngIf="!msg">
-            <ion-text>{{alert}}</ion-text>
-          </div>
-          <div class="centered-text-success" *ngIf="msg">
-            <ion-text>{{msg}}</ion-text>
-          </div>
-        </ion-list>
-      </ion-content>
+      <app-login></app-login>
     </ng-template>
   </ion-modal>
   </ion-toolbar>
-  
 </ion-header>
 

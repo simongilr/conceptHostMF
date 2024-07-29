@@ -1,5 +1,9 @@
-import { Component, OnInit, ViewChild  } from '@angular/core';
-import { AuthService } from '../../../shared/services/auth.service'; // Ajusta la ruta según tu estructura de carpetas
+import { Component, OnDestroy, ViewChild, ElementRef } from '@angular/core';
+import { AuthService } from '../../../shared/services/auth.service';
+import { catchError, tap } from 'rxjs/operators';
+import { Subscription, of } from 'rxjs';
+import { EncryptionService } from '@mflibs/encryption-lib';
+import { IonModal } from '@ionic/angular';
 
 
 @Component({
@@ -7,44 +11,60 @@ import { AuthService } from '../../../shared/services/auth.service'; // Ajusta l
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent  implements OnInit {
-  encryptionService: any;
-
-  constructor(private authService: AuthService) { }
-
-  ngOnInit() {}
+export class LoginComponent implements OnDestroy {
+  private subscription: Subscription = new Subscription();
+  
+ // @ViewChild('loginModal', { static: true }) loginModal!: ElementRef;
 
   username: string = '';
   password: string = '';
   msg: string = '';
   alert: string = 'Debe loguearse para continuar';
+  @ViewChild('loginModal', { static: true }) loginModal!: IonModal;
 
-  @ViewChild('modal') modal: any;
 
+  constructor(
+    private authService: AuthService,
+    private encryptionService: EncryptionService
+  ) {}
 
   login() {
-    const iv = this.encryptionService.generateIv().toString();
-    this.authService.login(this.username, this.password, iv).subscribe(
-      response => {
-        console.log('Login exitoso', response);
-        this.msg = 'Login exitoso';
+    const service = this.encryptionService;
+    const { encryptedText, iv } = service.encrypt(this.username);
+    const hashPassword = service.generateHash(this.password);
 
-        // Emitir evento o realizar alguna acción para notificar al NavBarComponent sobre el login exitoso
-        // Por ejemplo, usando un servicio compartido o un Output EventEmitter
+    console.log('Password hash:', hashPassword);
+    console.log('Encrypted Text:', encryptedText);
+    console.log('IV:', iv);
 
-        setTimeout(() => {
-          this.modal.dismiss();
-          this.msg = '';
-          this.username = '';
-          this.password = '';
-        }, 1000);
+    this.subscription.add(
+      this.authService.login(encryptedText, hashPassword, iv).pipe(
+        tap(response => {
+          console.log('Login exitoso', response);
+          this.msg = 'Login exitoso';
 
-      },
-      error => {
-        this.alert = 'Usuario o contraseña incorrectos';
-        console.error('Error al hacer login', error);
-      }
+          setTimeout(() => {
+            this.loginModal.dismiss();
+            this.msg = '';
+            this.username = '';
+            this.password = '';
+          }, 1000);
+        }),
+        catchError(error => {
+          this.alert = 'Usuario o contraseña incorrectos';
+          console.error('Error al hacer login', error);
+
+          const decryptedText = service.decrypt(encryptedText, iv);
+          console.log('Decrypted Text:', decryptedText);
+
+          return of(null);
+        })
+      ).subscribe()
     );
   }
+  
 
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }

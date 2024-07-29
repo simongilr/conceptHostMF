@@ -9,8 +9,9 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
-    IonicModule,
+    FormsModule,
+    IonicModule
   ],
-  exports: [LoginComponent] // Asegúrate de exportar LoginComponent
+  exports: [LoginComponent] 
 })
-export class LoginModule { }
+export class LoginModule {}

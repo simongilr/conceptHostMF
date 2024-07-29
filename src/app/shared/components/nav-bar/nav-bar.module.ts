@@ -1,18 +1,25 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavBarComponent } from './nav-bar.component';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { LoginModule } from '../login/login.module'; // Asegúrate de que la ruta sea correcta
+//import { LoginComponent } from '../login/login.component';
+import { HomePageRoutingModule } from '../../../admin/home/home-routing.module';
+
+import { LoginComponent } from '../login/login.component';
+import { LoginModule } from '../login/login.module';
 
 @NgModule({
-  declarations: [NavBarComponent],
+  declarations: [NavBarComponent, LoginComponent], 
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LoginModule // Asegúrate de importar LoginModule aquí
+    HomePageRoutingModule,
+    LoginModule
   ],
-  exports: [NavBarComponent]
+  exports: [NavBarComponent],
 })
 export class NavBarModule { }
+
+

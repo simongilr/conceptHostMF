@@ -8,7 +8,7 @@ import { FooterComponent } from '../../shared/components/footer/footer.component
 import { NavBarComponent } from '../../shared/components/nav-bar/nav-bar.component';
 import { MenuComponent } from '../../shared/components/menu/menu.component';
 import { SafeHtmlPipe } from '../../shared/components/menu//compile.pipe';
-
+import { LoginComponent } from 'src/app/shared/components/login/login.component'; 
 
 @NgModule({
   imports: [
@@ -18,6 +18,6 @@ import { SafeHtmlPipe } from '../../shared/components/menu//compile.pipe';
     HomePageRoutingModule
     
   ],
-  declarations: [ HomePage, SafeHtmlPipe, FooterComponent, NavBarComponent, MenuComponent ]
+  declarations: [ HomePage, SafeHtmlPipe, FooterComponent, NavBarComponent, MenuComponent, LoginComponent ]
 })
 export class HomePageModule {}
