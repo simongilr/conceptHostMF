@@ -11,6 +11,11 @@
     margin-left: -25px;
   }
 
+  ion-button {
+    outline: none;
+  }
+  
+
 
   .container-dashboard {
     width: 100%;
@@ -68,6 +73,14 @@
 
 .toolbar-notifications__icon{
     width: 1.5rem;
+}
+
+.toolbar-notifications__start{
+    width: 1.5rem;
+}
+
+.toolbar-notifications__question{
+    width: 1.0rem;
 }
 
 .toolbar-user {
@@ -224,12 +237,22 @@ ion-modal {
     --max-width: 85vh;
     --border-radius: 16px;
     --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  }
+}
   
-  @media (min-width: 1600px) {
+
+  
+  @media (min-width: 1600px) or (min-height: 750px) {
     ion-modal {
       --height: 40vh; /* Ajusta el valor según sea necesario */
       --max-height: 40vh; /* Ajusta el valor según sea necesario */
+      --max-width: 60vw; /* Ajusta el valor según sea necesario */
+    }
+  }
+
+  @media (min-width: 2500px) or (min-height: 1098px) {
+    ion-modal {
+      --height: 25vh; /* Ajusta el valor según sea necesario */
+      --max-height: 25vh; /* Ajusta el valor según sea necesario */
       --max-width: 60vw; /* Ajusta el valor según sea necesario */
     }
   }
@@ -240,40 +263,72 @@ ion-modal {
 
   }
   
-  ion-modal ion-toolbar {
-    --background: #038C83; /* Color de fondo del botón */
-    --color: white;
-  }
 
-  .login-modal-content {
-    --background: #f4f4f4; /* Cambia el color de fondo según tu preferencia */
+  ion-button {
+    --background: transparent; /* Asegura que el fondo del botón sea transparente */
+    --box-shadow: none; /* Elimina cualquier sombra del botón */
+    --border: none; /* Elimina cualquier borde del botón */
   }
   
-  .login-form {
-    padding: 20px;
+  ion-button:active, ion-button:focus {
+    --background: transparent; /* Mantén el fondo transparente en estado activo y enfocado */
+    --box-shadow: none; /* Elimina la sombra en estado activo y enfocado */
+    --border: none; /* Elimina el borde en estado activo y enfocado */
+    outline: none; /* Elimina el contorno del botón */
   }
   
-  .input-field {
-    border-radius: 8px;
-    background-color: #fff;
+
+  ion-toolbar {
+    display: flex;
+    --background: #038C83;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;   
+    width: 100%;
+    max-width: 100%;
+    --box-shadow: none !important;
+    box-shadow: none !important;
   }
   
-  .login-button {
-    margin-top: 20px;
-    --background: #038C83; /* Color de fondo del botón */
-    --color: #fff; /* Color del texto del botón */
-    --border-radius: 8px;
+  ion-toolbar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    box-shadow: none !important;
+    pointer-events: none;
   }
-
-  .centered-text {
-    text-align: center; /* Alinea el texto al centro */
-    margin-top: 20px; /* Añade un margen superior para separar del resto */
-    color: #720404;
+  
+  ion-button {
+    --background: transparent;
+    --box-shadow: none;
+    --border: none;
+    box-shadow: none !important;
+    border: none !important;
   }
-
-
-  .centered-text-success {
-    text-align: center; /* Alinea el texto al centro */
-    margin-top: 20px; /* Añade un margen superior para separar del resto */
-    color: #167204;
+  
+  ion-button:active, ion-button:focus {
+    --background: transparent;
+    --box-shadow: none;
+    --border: none;
+    box-shadow: none !important;
+    border: none !important;
+    outline: none;
   }
+  
+  ion-toolbar:active, ion-toolbar:focus {
+    --box-shadow: none;
+    outline: none;
+    box-shadow: none !important;
+    border: none !important;
+  }
+  
+  ion-toolbar ion-button:active, ion-toolbar ion-button:focus {
+    --box-shadow: none;
+    outline: none;
+    box-shadow: none !important;
+    border: none !important;
+  }
+  

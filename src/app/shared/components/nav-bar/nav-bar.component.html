@@ -5,11 +5,16 @@
         <img src="../../../../assets/icon/fi-rr-apps.svg" alt="Custom Icon" style="width: 24px; height: 24px;">
       </ion-button>
       <ion-title size="large" class="button-text">SicofERP</ion-title>
-
       <div class="dashboard-toolbar toolbar">
         <div class="toolbar-item">
           <div class="toolbar-notifications" *ngIf="user == 'Loggin'">
-            <img src="../../../../assets/images/notificaciones.svg" alt="" class="toolbar-notifications__icon">
+            <img src="../../../../assets/images/start.svg" alt="" class="toolbar-notifications__start">
+          </div>
+          <div class="toolbar-notifications" *ngIf="user == 'Loggin'">
+            <img src="../../../../assets/images/question.svg" alt="" class="toolbar-notifications__question">
+          </div>
+          <div class="toolbar-notifications" *ngIf="user == 'Loggin'">
+            <img src="../../../../assets/images/bell.svg" alt="" class="toolbar-notifications__icon">
           </div>
           <div class="toolbar-user" id="open-modal" (click)="openLoginModal()" expand="block">
             <div class="toolbar-user__name">{{user}}</div>
@@ -20,6 +25,7 @@
     </div>
   </ion-toolbar>
 </ion-header>
+
 
 <ion-modal #modal trigger="open-modal">
   <ng-template>

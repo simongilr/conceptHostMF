@@ -14,16 +14,12 @@ import { IonModal } from '@ionic/angular';
 export class LoginComponent implements OnDestroy {
   private subscription: Subscription = new Subscription();
   
- // @ViewChild('loginModal', { static: true }) loginModal!: ElementRef;
-
   username: string = '';
   password: string = '';
   msg: string = '';
   alert: string = 'Debe loguearse para continuar';
-  //@ViewChild('loginModal', { static: true }) loginModal!: IonModal;
 
   @ViewChild(IonModal) loginModal!: IonModal;
-
   @Output() closeModal: EventEmitter<void> = new EventEmitter<void>();
 
 
