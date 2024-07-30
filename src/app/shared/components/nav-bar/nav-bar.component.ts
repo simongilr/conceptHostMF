@@ -1,9 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { AuthService } from '../../../shared/services/auth.service';
-import { catchError, tap } from 'rxjs/operators';
-import { Subscription, of } from 'rxjs';
-import { EncryptionService } from '@mflibs/encryption-lib';
-import { LoginComponent } from '../login/login.component';
+import { IonModal } from '@ionic/angular';
 
 @Component({
   selector: 'app-nav-bar',
@@ -11,22 +7,15 @@ import { LoginComponent } from '../login/login.component';
   styleUrls: ['./nav-bar.component.scss'],
 })
 export class NavBarComponent {
-  private subscription: Subscription = new Subscription();
-  
-  @ViewChild('loginComponent', { static: true }) loginComponent!: LoginComponent;
-
   user: string = 'Loggin';
 
-  constructor(
-    private authService: AuthService,
-    private encryptionService: EncryptionService
-  ) { }
+  @ViewChild('modal', { static: true }) modal!: IonModal;
 
   openLoginModal() {
-    this.loginComponent.loginModal.present();
+    this.modal.present();
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
+  closeModal() {
+    this.modal.dismiss();
   }
 }

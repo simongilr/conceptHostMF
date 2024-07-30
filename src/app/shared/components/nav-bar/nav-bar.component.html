@@ -1,6 +1,5 @@
 <ion-header [translucent]="false" class="ion-no-border ion-header custom-header">
   <ion-toolbar>
-    
     <div class="toolbar-content">
       <ion-button id="click-trigger" fill="clear">
         <img src="../../../../assets/icon/fi-rr-apps.svg" alt="Custom Icon" style="width: 24px; height: 24px;">
@@ -9,22 +8,21 @@
 
       <div class="dashboard-toolbar toolbar">
         <div class="toolbar-item">
-            <div class="toolbar-notifications" *ngIf="user == 'Loggin'">
-                <img src="../../../../assets/images/notificaciones.svg" alt="" class="toolbar-notifications__icon">
-            </div>
-            <div class="toolbar-user" id="open-modal" (click)="openLoginModal()" expand="block">
-                <div class="toolbar-user__name">{{user}}</div>
-                <img src="../../../../assets/images/user.png" alt="" class="toolbar-user__icon">
-            </div>
+          <div class="toolbar-notifications" *ngIf="user == 'Loggin'">
+            <img src="../../../../assets/images/notificaciones.svg" alt="" class="toolbar-notifications__icon">
+          </div>
+          <div class="toolbar-user" id="open-modal" (click)="openLoginModal()" expand="block">
+            <div class="toolbar-user__name">{{user}}</div>
+            <img src="../../../../assets/images/user.png" alt="" class="toolbar-user__icon">
+          </div>
         </div>
+      </div>
     </div>
-  </div>
-
-  <ion-modal #modal trigger="open-modal">
-    <ng-template>
-      <app-login></app-login>
-    </ng-template>
-  </ion-modal>
   </ion-toolbar>
 </ion-header>
 
+<ion-modal #modal trigger="open-modal">
+  <ng-template>
+    <app-login (closeModal)="closeModal()"></app-login>
+  </ng-template>
+</ion-modal>

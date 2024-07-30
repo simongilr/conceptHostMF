@@ -1,25 +1,23 @@
-<!-- login.component.html -->
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Ingreso</ion-title>
-      <ion-buttons slot="end">
-        <ion-button color="light" (click)="loginModal.dismiss()">X</ion-button>
-      </ion-buttons>
-    </ion-toolbar>
-  </ion-header>
-    <ion-list class="login-form">
-      <ion-item>
-        <ion-input type="text" [(ngModel)]="username" labelPlacement="floating" label="Usuario"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input type="password" [(ngModel)]="password" labelPlacement="floating" label="Contraseña" (keyup.enter)="login()"></ion-input>
-      </ion-item>
-      <br>
-      <ion-button expand="block" class="login-button" (click)="login()">Aceptar</ion-button>
-      <div class="centered-text" *ngIf="!msg">
-        <ion-text>{{alert}}</ion-text>
-      </div>
-      <div class="centered-text-success" *ngIf="msg">
-        <ion-text>{{msg}}</ion-text>
-      </div>
-    </ion-list>
+  <ion-toolbar>
+    <ion-title>Ingreso</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="light" (click)="onCloseModal()">X</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-list class="login-form">
+    <ion-item>
+      <ion-input type="text" [(ngModel)]="username" labelPlacement="floating" label="Usuario"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="password" [(ngModel)]="password" labelPlacement="floating" label="Contraseña" (keyup.enter)="login()"></ion-input>
+    </ion-item>
+    <br>
+    <ion-button expand="block" class="login-button" (click)="login()">Aceptar</ion-button>
+    <div class="centered-text" *ngIf="!msg">
+      <ion-text>{{ alert }}</ion-text>
+    </div>
+    <div class="centered-text-success" *ngIf="msg">
+      <ion-text>{{ msg }}</ion-text>
+    </div>
+  </ion-list>
+

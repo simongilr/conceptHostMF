@@ -1,4 +1,4 @@
-import { Component, OnDestroy, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnDestroy, ViewChild, ElementRef, Output, EventEmitter  } from '@angular/core';
 import { AuthService } from '../../../shared/services/auth.service';
 import { catchError, tap } from 'rxjs/operators';
 import { Subscription, of } from 'rxjs';
@@ -20,7 +20,11 @@ export class LoginComponent implements OnDestroy {
   password: string = '';
   msg: string = '';
   alert: string = 'Debe loguearse para continuar';
-  @ViewChild('loginModal', { static: true }) loginModal!: IonModal;
+  //@ViewChild('loginModal', { static: true }) loginModal!: IonModal;
+
+  @ViewChild(IonModal) loginModal!: IonModal;
+
+  @Output() closeModal: EventEmitter<void> = new EventEmitter<void>();
 
 
   constructor(
@@ -44,7 +48,7 @@ export class LoginComponent implements OnDestroy {
           this.msg = 'Login exitoso';
 
           setTimeout(() => {
-            this.loginModal.dismiss();
+            this.closeModal.emit();
             this.msg = '';
             this.username = '';
             this.password = '';
@@ -63,6 +67,9 @@ export class LoginComponent implements OnDestroy {
     );
   }
   
+  onCloseModal() {
+    this.closeModal.emit();
+  }
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
