@@ -8,9 +8,21 @@
   .button-text {
     color: white;
     text-transform: capitalize;
-    margin-left: -25px;
+    margin-left: -20px;
   }
-
+  
+  .logo {
+    width: 6.5rem; /* Tamaño predeterminado del logo */
+    height: auto; /* Mantiene la proporción del logo */
+    margin-top: 5px;
+    box-sizing: content-box; /* Asegura que el tamaño del logo no se vea afectado por el padding */
+  
+    @media (max-width: 530px) {
+      width: 120%; /* Ajusta el tamaño del logo para pantallas más pequeñas */
+      height: 120%; /* Mantiene la proporción del logo */
+      margin-top: 5px;
+    }
+  }
   ion-button {
     outline: none;
   }
@@ -277,7 +289,48 @@ ion-modal {
     outline: none; /* Elimina el contorno del botón */
   }
   
-
+  .custom-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 40px; /* Aumenta el tamaño del área clicable */
+    height: 40px; /* Aumenta el tamaño del área clicable */
+    margin-left: -10px;
+    margin-right: 0px;
+    padding: 8px; /* Añade relleno para asegurar que el área clicable sea mayor */
+    box-sizing: content-box; /* Asegura que el tamaño del botón no se vea afectado por el padding */
+  }
+  
+  .custom-button img {
+    width: 24px;
+    height: 24px;
+    min-width: 24px; /* Asegura un tamaño mínimo para el ícono */
+    min-height: 24px; /* Asegura un tamaño mínimo para el ícono */
+    pointer-events: none; /* Asegura que la imagen no interfiera con el clic del contenedor */
+  }
+  
+  .custom-button:active,
+  .custom-button:focus {
+    background: transparent;
+    outline: none;
+  }
+  
+  @media (max-width: 600px) {
+    .custom-button {
+      width: 40px; /* Mantén el tamaño del botón */
+      height: 40px; /* Mantén el tamaño del botón */
+    }
+  
+    .custom-button img {
+      width: 24px; /* Mantén el tamaño del ícono */
+      height: 24px; /* Mantén el tamaño del ícono */
+    }
+  }
+  
   ion-toolbar {
     display: flex;
     --background: #038C83;

@@ -1,10 +1,13 @@
 <ion-header [translucent]="false" class="ion-no-border ion-header custom-header">
   <ion-toolbar>
     <div class="toolbar-content">
-      <ion-button id="click-trigger" fill="clear">
-        <img src="../../../../assets/icon/fi-rr-apps.svg" alt="Custom Icon" style="width: 24px; height: 24px;">
-      </ion-button>
-      <ion-title size="large" class="button-text">SicofERP</ion-title>
+      <div id="click-trigger" fill="clear" class="custom-button">
+        <img src="../../../../assets/icon/fi-rr-apps.svg" alt="Custom Icon">
+      </div>
+      <ion-title size="large" class="button-text"> 
+        <img src="../../../../assets/images/logosicof.svg" alt="Custom Icon"  class="logo">
+      </ion-title>
+
       <div class="dashboard-toolbar toolbar">
         <div class="toolbar-item">
           <div class="toolbar-notifications" *ngIf="user == 'Loggin'">
