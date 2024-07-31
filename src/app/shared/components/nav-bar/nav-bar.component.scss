@@ -4,7 +4,6 @@
     align-items: center; /* Centra verticalmente los elementos */
     padding: 0 16px; /* Ajusta el relleno horizontal según sea necesario */
   }
-  
   .button-text {
     color: white;
     text-transform: capitalize;
@@ -15,14 +14,21 @@
     width: 6.5rem; /* Tamaño predeterminado del logo */
     height: auto; /* Mantiene la proporción del logo */
     margin-top: 5px;
-    box-sizing: content-box; /* Asegura que el tamaño del logo no se vea afectado por el padding */
   
-    @media (max-width: 530px) {
-      width: 120%; /* Ajusta el tamaño del logo para pantallas más pequeñas */
-      height: 120%; /* Mantiene la proporción del logo */
-      margin-top: 5px;
+    /* Evita que el logo sea más pequeño que 4rem */
+    min-width: 4rem;
+  
+    @media (max-width: 600px) {
+      width: 5.5rem; /* Ajusta el tamaño del logo para pantallas más pequeñas */
+      min-width: 5rem; /* Mantiene el tamaño mínimo del logo */
+    }
+  
+    @media (max-width: 400px) {
+      width: 4.5rem; /* Ajusta aún más el tamaño para pantallas muy pequeñas */
+      min-width: 4rem; /* Mantiene el tamaño mínimo del logo */
     }
   }
+
   ion-button {
     outline: none;
   }
@@ -289,6 +295,8 @@ ion-modal {
     outline: none; /* Elimina el contorno del botón */
   }
   
+
+  
   .custom-button {
     display: inline-flex;
     align-items: center;
@@ -299,10 +307,12 @@ ion-modal {
     outline: none;
     width: 40px; /* Aumenta el tamaño del área clicable */
     height: 40px; /* Aumenta el tamaño del área clicable */
-    margin-left: -10px;
-    margin-right: 0px;
+    margin-left: -15px; /* Ajusta el margen izquierdo si es necesario */
+    margin-right: 0px; /* Ajusta el margen derecho si es necesario */
     padding: 8px; /* Añade relleno para asegurar que el área clicable sea mayor */
     box-sizing: content-box; /* Asegura que el tamaño del botón no se vea afectado por el padding */
+    position: relative; /* Asegura que el z-index funcione */
+    z-index: 10; /* Asegura que el botón esté por encima de otros elementos */
   }
   
   .custom-button img {
@@ -317,18 +327,6 @@ ion-modal {
   .custom-button:focus {
     background: transparent;
     outline: none;
-  }
-  
-  @media (max-width: 600px) {
-    .custom-button {
-      width: 40px; /* Mantén el tamaño del botón */
-      height: 40px; /* Mantén el tamaño del botón */
-    }
-  
-    .custom-button img {
-      width: 24px; /* Mantén el tamaño del ícono */
-      height: 24px; /* Mantén el tamaño del ícono */
-    }
   }
   
   ion-toolbar {
