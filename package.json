@@ -28,7 +28,7 @@
     "@capacitor/keyboard": "5.0.8",
     "@capacitor/status-bar": "5.0.7",
     "@ionic/angular": "^8.2.5",
-    "@mflibs/encryption-lib": "file:mflibs/encryption-lib.tgz",
+    "@mflibs/encryption-lib": "^1.0.15",
     "crypto-js": "^4.2.0",
     "ionicons": "^7.0.0",
     "ng-packagr": "^17.3.0",
